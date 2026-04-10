@@ -599,7 +599,7 @@ h1 span {
 .podcast-feature {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.05)),
-    var(--accent);
+    #497791;
   color: #fff;
   box-shadow: var(--shadow);
   position: relative;
