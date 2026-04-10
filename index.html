@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="./styles.css">
@@ -22,16 +22,17 @@
         <a class="brand" href="/">Nick Hanauer</a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#about">About</a>
-          <a href="#ideas">Ideas</a>
-          <a href="#books">Books</a>
+          <a href="#ideas">Economics</a>
+          <a href="#books">Publications</a>
+          <a href="#civic">Civic</a>
+          <a href="#business">Business</a>
           <a href="#media">Media</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Connect</a>
         </nav>
       </header>
 
       <main>
         <section class="hero">
-          <div class="hero-mark">NH</div>
           <div class="hero-copy">
             <p class="eyebrow">Entrepreneur, Investor, Civic Leader</p>
             <h1>Economic growth should be broader, stronger, and more widely shared.</h1>
@@ -40,6 +41,15 @@
               focuses on building a more inclusive economy and a more resilient
               democracy.
             </p>
+            <div class="hero-actions">
+              <a class="button button-solid" href="#about">About Nick</a>
+              <a class="button button-ghost" href="#media">Featured Talk</a>
+            </div>
+          </div>
+          <div class="hero-portrait-wrap">
+            <figure class="hero-portrait">
+              <img src="./assets/nick-hero-illustration-transparent.png" alt="Illustrated portrait of Nick Hanauer">
+            </figure>
           </div>
         </section>
 
@@ -51,118 +61,502 @@
         </section>
 
         <section class="section intro" id="about">
-          <div class="section-heading section-heading-split">
-            <p class="section-kicker">About</p>
-            <h2>A business leader with a clear public voice.</h2>
-          </div>
-          <div class="intro-grid">
-            <p>
-              Nick Hanauer has spent decades founding companies, investing in
-              transformative businesses, and contributing to public life in Seattle
-              and beyond. His perspective is rooted in direct experience building
-              inside the American economy.
-            </p>
-            <p>
-              His work focuses on the conditions that make economies stronger,
-              communities healthier, and democratic institutions more resilient.
-              Across business and civic life, the central question is how growth
-              can be broader, sturdier, and more widely shared.
-            </p>
+          <div class="about-layout">
+            <div class="section-heading-stack about-rail">
+              <p class="section-kicker">About</p>
+              <h2>A business leader with a clear public voice.</h2>
+            </div>
+            <figure class="about-image">
+              <img src="./assets/about-kelly-o.webp" alt="Nick Hanauer standing in Seattle">
+            </figure>
+            <div class="about-copy">
+              <p>
+                Nick Hanauer is a successful business leader, entrepreneur, and
+                venture capitalist. Hanauer has founded, co-founded, or invested
+                in dozens of companies. He was the first non-family investor in
+                Amazon.com, and a company he founded, aQuantive, later sold to
+                Microsoft for 6.4 billion dollars.
+              </p>
+              <p>
+                In recent years, Hanauer has established himself as a civic
+                innovator, public speaker, and fierce critic of America’s growing
+                income inequality. He is the founder of Civic Ventures, a public
+                policy incubator in Seattle devoted to catalyzing significant
+                social change, and the co-author of two bestselling books,
+                <em>The True Patriot</em> and <em>Gardens of Democracy</em>. His
+                policy pieces for outlets including Politico, Bloomberg News, and
+                TED have gone viral, reaching audiences of tens of millions.
+              </p>
+              <div class="media-mentions">
+                <p class="media-mentions-title">In the Media</p>
+                <div class="media-mentions-grid" aria-label="Media mentions">
+                  <div class="media-mention media-mention-forbes">
+                    <img
+                      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Forbes_logo.svg"
+                      alt="Forbes logo"
+                    >
+                  </div>
+                  <div class="media-mention media-mention-bi">
+                    <img
+                      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Business%20Insider%202023%20logo.svg"
+                      alt="Business Insider logo"
+                    >
+                  </div>
+                  <div class="media-mention media-mention-times">
+                    <img
+                      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Seattle%20Times%20logo.svg"
+                      alt="The Seattle Times logo"
+                    >
+                  </div>
+                  <div class="media-mention media-mention-ted">
+                    <img
+                      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/TED%20three%20letter%20logo.svg"
+                      alt="TED logo"
+                    >
+                  </div>
+                  <div class="media-mention media-mention-cnbc">
+                    <img
+                      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/CNBC%202025.svg"
+                      alt="CNBC logo"
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section class="section ideas" id="ideas">
-          <div class="section-heading section-heading-split">
-            <p class="section-kicker">Ideas</p>
-            <h2>Three themes at the center of the work.</h2>
-          </div>
-          <div class="card-grid">
-            <article class="idea-card">
-              <h3>Growth depends on participation</h3>
-              <p>
-                Strong economies are built when more people can contribute to and
-                benefit from growth.
-              </p>
-            </article>
-            <article class="idea-card">
-              <h3>Democracy and prosperity reinforce one another</h3>
-              <p>
-                Healthy institutions, civic trust, and broad opportunity are part
-                of the foundation for long-term economic success.
-              </p>
-            </article>
-            <article class="idea-card">
-              <h3>Policy helps shape outcomes</h3>
-              <p>
-                Public rules influence how markets behave, who gets included, and
-                what kind of future economic growth creates.
-              </p>
-            </article>
+        <section class="section economics" id="ideas">
+          <div class="economics-layout">
+            <div class="section-heading-stack economics-rail">
+              <p class="section-kicker">Nick On Economics</p>
+              <h2>Pitchfork Economics with Nick Hanauer.</h2>
+            </div>
+            <div class="economics-content">
+              <div class="economics-topline">
+                <p>
+                  The tenets of trickle-down economics, tax cuts for the rich,
+                  deregulation for the powerful, and wage suppression for working
+                  people, have turned economic inequality into the defining issue
+                  of our time.
+                </p>
+              </div>
+
+              <div class="economics-feature-grid">
+                <blockquote class="economics-quote economics-quote-display">
+                  <span class="quote-mark">“</span>
+                  People are angry. And they have a right to be angry. Because
+                  they’ve been taken advantage of for 40 years. Now, what we do
+                  with that anger, how we express it, what change we enact to
+                  remedy it: that’s the question. Because if you don’t get
+                  economics right, the pitchforks will come out.
+                  <span class="economics-inline-attribution">— Nick Hanauer</span>
+                </blockquote>
+
+                <div class="podcast-feature">
+                  <div class="podcast-branding">
+                    <img
+                      src="./assets/pitchfork-economics-banner.png"
+                      alt="Pitchfork Economics banner"
+                    >
+                  </div>
+                  <div class="podcast-copy">
+                    <p>
+                      <em>Pitchfork Economics with Nick Hanauer</em> is a
+                      podcast about who gets what and why in the American
+                      economy. Everything you learned in Econ 101 is wrong.
+                    </p>
+                    <div class="hero-actions">
+                      <a class="button button-solid" href="http://www.pitchforkeconomics.com/">
+                        Visit Pitchfork Economics
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section class="section books" id="books">
-          <div class="section-heading section-heading-split">
-            <p class="section-kicker">Writing</p>
-            <h2>Books, essays, and public argument.</h2>
+          <div class="publications-layout">
+            <div class="section-heading-stack publications-rail">
+              <p class="section-kicker">Publications</p>
+              <h2>Selected essays, commentary, and policy writing.</h2>
+            </div>
+            <div class="publications-content">
+              <div class="list-block">
+                <article class="list-row">
+                  <p class="list-label">2024</p>
+                  <h3>
+                    <a href="https://democracyjournal.org/magazine/72/a-new-economics-takes-hold/" target="_blank" rel="noreferrer">
+                      A New Economics Takes Hold
+                    </a>
+                  </h3>
+                  <p>Democracy Journal</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2024</p>
+                  <h3>
+                    <a href="https://newrepublic.com/article/185013/kamala-harris-corporate-greed" target="_blank" rel="noreferrer">
+                      A Very Good Sign: Kamala Harris Is Going Right at Corporate Greed
+                    </a>
+                  </h3>
+                  <p>The New Republic</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2023</p>
+                  <h3>
+                    <a href="https://time.com/6343210/bidenomics-middle-out-economics/" target="_blank" rel="noreferrer">
+                      Bidenomics is Real Economics
+                    </a>
+                  </h3>
+                  <p>TIME</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2023</p>
+                  <h3>
+                    <a href="https://prospect.org/economy/transformation-at-heart-of-bidens-middle-out-economic-agenda/" target="_blank" rel="noreferrer">
+                      The Transformation at the Heart of Biden’s Middle-Out Economic Agenda
+                    </a>
+                  </h3>
+                  <p>The American Prospect</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2023</p>
+                  <h3>
+                    <a href="https://prospect.org/economy/six-ways-existing-economic-models-are-killing-the-economy/" target="_blank" rel="noreferrer">
+                      Six Ways Existing Economic Models Are Killing the Economy
+                    </a>
+                  </h3>
+                  <p>The American Prospect</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2022</p>
+                  <h3>
+                    <a href="https://democracyjournal.org/magazine/65/is-middle-out-bidens-new-deal/" target="_blank" rel="noreferrer">
+                      Is “Middle-Out” Biden’s New Deal?
+                    </a>
+                  </h3>
+                  <p>Democracy Journal</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2022</p>
+                  <h3>
+                    <a href="https://newrepublic.com/article/167544/middle-out-economics-biden" target="_blank" rel="noreferrer">
+                      I Helped Coin the Phrase “Middle-Out Economics.” Biden Is Making It a Reality
+                    </a>
+                  </h3>
+                  <p>The New Republic</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2021</p>
+                  <h3>
+                    <a href="https://newrepublic.com/article/163775/biden-plan-tax-rich-people-best-way-grow-economy" target="_blank" rel="noreferrer">
+                      Biden’s Plan to Tax Rich People Like Me is the Best Way to Grow the Economy
+                    </a>
+                  </h3>
+                  <p>The New Republic</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2021</p>
+                  <h3>
+                    <a href="https://www.seattletimes.com/opinion/please-tax-my-capital-gains-profits-washingtons-crises-demand-it/" target="_blank" rel="noreferrer">
+                      Please tax my capital-gains profits: Washington’s crises demand it
+                    </a>
+                  </h3>
+                  <p>The Seattle Times</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2020</p>
+                  <h3>
+                    <a href="https://time.com/5888024/50-trillion-income-inequality-america/" target="_blank" rel="noreferrer">
+                      The Top 1% of Americans Have Taken $50 Trillion From the Bottom 90%
+                    </a>
+                  </h3>
+                  <p>TIME</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2020</p>
+                  <h3>
+                    <a href="https://prospect.org/coronavirus/our-uniquely-american-virus/" target="_blank" rel="noreferrer">
+                      Our Uniquely American Virus
+                    </a>
+                  </h3>
+                  <p>The American Prospect</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2019</p>
+                  <h3>
+                    <a href="https://www.businessinsider.com/overtime-pay-worker-productivity-inequality-2019-6" target="_blank" rel="noreferrer">
+                      Bosses like me have had the power to force employees to work overtime for free
+                    </a>
+                  </h3>
+                  <p>Business Insider</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2019</p>
+                  <h3>
+                    <a href="https://www.politico.com/magazine/story/2019/06/26/democrats-party-of-growth-227212/" target="_blank" rel="noreferrer">
+                      Democrats are the Party of Growth: A Sympathetic Zillionaire's Advice to Democrats
+                    </a>
+                  </h3>
+                  <p>Politico</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2018</p>
+                  <h3>
+                    <a href="https://prospect.org/economy/want-expand-economy-tax-rich/" target="_blank" rel="noreferrer">
+                      Want to Expand the Economy? Tax the Rich!
+                    </a>
+                  </h3>
+                  <p>The American Prospect</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2017</p>
+                  <h3>
+                    <a href="https://www.politico.com/magazine/story/2017/07/18/trumpism-plutocrats-cure-215386/" target="_blank" rel="noreferrer">
+                      To My Fellow Plutocrats: You Can Cure Trumpism
+                    </a>
+                  </h3>
+                  <p>Politico</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2016</p>
+                  <h3>
+                    <a href="https://ideas.ted.com/opinion-how-the-gop-scammed-its-voters-and-created-trump/" target="_blank" rel="noreferrer">
+                      Opinion: How the GOP scammed its voters... and created Trump
+                    </a>
+                  </h3>
+                  <p>TED Ideas</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2015</p>
+                  <h3>
+                    <a href="https://www.theatlantic.com/business/archive/2015/02/stock-buybacks-are-killing-the-american-economy/385259/" target="_blank" rel="noreferrer">
+                      Stock Buybacks Are Killing the American Economy
+                    </a>
+                  </h3>
+                  <p>The Atlantic</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2014</p>
+                  <h3>
+                    <a href="https://www.politico.com/magazine/story/2014/06/the-pitchforks-are-coming-for-us-plutocrats-108014/" target="_blank" rel="noreferrer">
+                      The Pitchforks Are Coming... For Us Plutocrats
+                    </a>
+                  </h3>
+                  <p>Politico</p>
+                </article>
+              </div>
+              <div class="hero-actions publications-actions">
+                <a class="button button-solid" href="https://www.nickhanauer.com/publications">
+                  View Full Publications Archive
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="list-block">
-            <article class="list-row">
-              <p class="list-label">Book</p>
-              <h3>The True Patriot</h3>
-              <p>A case for economic patriotism and national renewal.</p>
-            </article>
-            <article class="list-row">
-              <p class="list-label">Book</p>
-              <h3>Gardens of Democracy</h3>
-              <p>A framework for a more adaptive and resilient democracy.</p>
-            </article>
-            <article class="list-row">
-              <p class="list-label">Publications</p>
-              <h3>Essays and policy writing</h3>
-              <p>Commentary on inequality, growth, and civic renewal.</p>
-            </article>
+        </section>
+
+        <section class="section civic" id="civic">
+          <div class="civic-layout">
+            <div class="section-heading-stack civic-rail">
+              <p class="section-kicker">Civic Ventures</p>
+              <h2>Ideas, policy, and action aimed at real change.</h2>
+            </div>
+            <div class="civic-content">
+              <blockquote class="civic-quote">
+                “How do I turn $1 million of giving into $1 billion of social
+                change?” <span class="civic-inline-attribution">— Nick Hanauer</span>
+              </blockquote>
+              <div class="civic-body">
+                <p>
+                  Founded by Nick in 2015, Civic Ventures is a group of
+                  political troublemakers devoted to ideas, policies, and
+                  actions that catalyze significant social change.
+                </p>
+                <p>
+                  By thinking, writing, and acting outside the realm of
+                  conventional political discourse, Civic Ventures drives the
+                  economic conversation and fundamentally alters the status quo
+                  in Seattle, Washington state, and the United States.
+                </p>
+              </div>
+              <div class="hero-actions">
+                <a class="button button-solid" href="http://civic-ventures.com/">
+                  Visit Civic Ventures
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section business" id="business">
+          <div class="business-layout">
+            <div class="section-heading-stack business-rail">
+              <p class="section-kicker">Business</p>
+              <h2>Three decades of company building, investing, and leadership.</h2>
+            </div>
+            <div class="business-content">
+              <div class="business-intro">
+                <p>
+                  He is one of the most successful entrepreneurs, investors, and
+                  managers in the Northwest, with more than 30 years of
+                  experience across a broad range of industries including
+                  manufacturing, retailing, e-commerce, digital media and
+                  advertising, software, aerospace, health care, and finance.
+                </p>
+                <p>
+                  That experience and perspective have produced an unusual
+                  record of serial success. Over the course of his career, he
+                  has managed, founded, or financed more than 30 companies,
+                  creating aggregate market value in the tens of billions of
+                  dollars.
+                </p>
+              </div>
+
+              <div class="business-highlights">
+                <article class="business-highlight">
+                  <p class="list-label">Notable Companies</p>
+                  <h3>Amazon.com</h3>
+                  <p>First non-family investor.</p>
+                </article>
+                <article class="business-highlight">
+                  <p class="list-label">Notable Companies</p>
+                  <h3>aQuantive</h3>
+                  <p>Purchased by Microsoft in 2007 for $6.4 billion.</p>
+                </article>
+                <article class="business-highlight">
+                  <p class="list-label">Notable Companies</p>
+                  <h3>Insitu Group</h3>
+                  <p>Purchased by Boeing for $400 million.</p>
+                </article>
+                <article class="business-highlight">
+                  <p class="list-label">Notable Companies</p>
+                  <h3>Market Leader</h3>
+                  <p>Purchased by Trulia in 2013 for $350 million.</p>
+                </article>
+              </div>
+
+              <div class="business-partner">
+                <p class="list-label">Second Avenue Partners</p>
+                <p>
+                  Nick is currently a partner at Second Avenue Partners, a
+                  Seattle-based provider of management, strategy, and capital
+                  for early stage companies in the Greater Puget Sound area that
+                  he co-founded in February 2000. The firm invests in promising
+                  teams and transformational ideas across internet, consumer and
+                  social media, software, and clean energy.
+                </p>
+                <div class="hero-actions">
+                  <a class="button button-solid" href="https://www.secondave.com/">
+                    Visit Second Avenue Partners
+                  </a>
+                </div>
+              </div>
+
+              <div class="business-companies">
+                <p class="business-companies-title">Companies Nick has founded or invested in</p>
+                <div class="business-company-grid">
+                  <span>Pacific Coast Feather Company</span>
+                  <span>Amazon.com</span>
+                  <span>aQuantive</span>
+                  <span>Insitu Group</span>
+                  <span>Juno Therapeutics</span>
+                  <span>Seattle Bank</span>
+                  <span>Market Leader</span>
+                  <span>Flexe</span>
+                  <span>Museum Quality Framing</span>
+                  <span>Gear.com</span>
+                  <span>Down Under Nightclub</span>
+                  <span>Eurodown</span>
+                  <span>National Sleep Products</span>
+                  <span>Pac-Fung</span>
+                  <span>Scandia Down</span>
+                  <span>SeeQ</span>
+                  <span>RealSelf</span>
+                  <span>Qliance</span>
+                  <span>WISErg</span>
+                  <span>Tree Ring</span>
+                  <span>Slope</span>
+                  <span>Marchex</span>
+                  <span>Essention</span>
+                  <span>Azeleos</span>
+                  <span>Inkd</span>
+                  <span>Modumetal</span>
+                  <span>Coolspotters</span>
+                  <span>HealthSlate</span>
+                  <span>Jenu</span>
+                  <span>Front Desk</span>
+                  <span>Glassnetic</span>
+                  <span>Location Labs</span>
+                  <span>Fantasy Moguls</span>
+                  <span>Fan Nation</span>
+                  <span>Newsvine</span>
+                  <span>Audience Science</span>
+                  <span>GemShare</span>
+                  <span>King of the Web</span>
+                  <span>L1</span>
+                  <span>Upworthy</span>
+                  <span>BeLeave</span>
+                  <span>Inspo</span>
+                  <span>MIGO</span>
+                  <span>Insta-Pix</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section class="section media" id="media">
-          <div class="section-heading section-heading-split">
-            <p class="section-kicker">Media</p>
-            <h2>A widely viewed argument about capitalism and its future.</h2>
-          </div>
           <div class="media-layout">
-            <div class="video-frame">
-              <iframe
-                src="https://embed.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward"
-                title="Nick Hanauer TED Talk"
-                loading="lazy"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+            <div class="section-heading-stack media-rail">
+              <p class="section-kicker">Media</p>
+              <h2>A widely viewed argument about capitalism and its future.</h2>
             </div>
-            <div class="media-copy">
-              <p class="list-label">TED</p>
-              <h3>The dirty secret of capitalism, and a new way forward</h3>
-              <p>
-                A concise case for why economies weaken when prosperity narrows,
-                and why a broader distribution of growth matters.
-              </p>
-              <div class="hero-actions">
-                <a class="button button-solid" href="https://www.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward">Watch on TED</a>
+            <div class="media-feature">
+              <div class="video-frame">
+                <iframe
+                  src="https://embed.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward"
+                  title="Nick Hanauer TED Talk"
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="media-caption">
+                <div class="media-copy">
+                  <p class="list-label">TED</p>
+                  <h3>The dirty secret of capitalism, and a new way forward</h3>
+                  <p>
+                    A concise case for why economies weaken when prosperity narrows,
+                    and why a broader distribution of growth matters.
+                  </p>
+                </div>
+                <div class="hero-actions">
+                  <a class="button button-solid" href="https://www.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward">Watch on TED</a>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         <section class="section contact" id="contact">
-          <div class="contact-panel">
-            <p class="section-kicker">Contact</p>
-            <h2>For speaking, media, or collaboration.</h2>
-            <p>
-              This section can become a direct contact form, press contact, or a
-              simple routing page once we know how you want inquiries handled.
-            </p>
-            <a class="button button-solid" href="mailto:hello@example.com">Start a Conversation</a>
+          <div class="contact-layout">
+            <div class="section-heading-stack contact-rail">
+              <p class="section-kicker">Connect</p>
+              <h2>Follow Nick Hanauer on Facebook.</h2>
+            </div>
+            <div class="contact-panel">
+              <p>
+                For updates, commentary, and public-facing posts, Facebook is the
+                most active direct channel currently linked to Nick’s public
+                presence.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-solid" href="https://www.facebook.com/NickHanauer">Visit Facebook</a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
