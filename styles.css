@@ -33,9 +33,7 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background:
-    radial-gradient(circle at top right, rgba(78, 120, 146, 0.05), transparent 28%),
-    linear-gradient(180deg, #ffffff 0%, #fcfcfa 100%);
+  background: #ffffff;
 }
 
 img,
@@ -60,11 +58,7 @@ a {
   position: absolute;
   inset: 86px 0 auto 0;
   height: 560px;
-  background:
-    radial-gradient(circle at 16% 16%, rgba(255, 255, 255, 0.96), transparent 30%),
-    radial-gradient(circle at 78% 18%, rgba(78, 120, 146, 0.1), transparent 32%),
-    radial-gradient(circle at 46% 42%, rgba(255, 255, 255, 0.44), transparent 24%),
-    radial-gradient(circle at 62% 56%, rgba(159, 53, 52, 0.035), transparent 26%);
+  background: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -73,7 +67,7 @@ a {
 .proof-strip,
 .site-footer {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.82);
+  background: #ffffff;
   position: relative;
   z-index: 1;
 }
@@ -146,7 +140,7 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.9fr);
   gap: 52px;
-  align-items: start;
+  align-items: center;
   margin-top: 72px;
   position: relative;
   z-index: 1;
@@ -169,24 +163,26 @@ a {
 .hero-portrait-wrap {
   position: relative;
   align-self: end;
-  transform: translateX(-24px);
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  transform: translateX(-160px);
+  background: #ffffff;
 }
 
 .hero-portrait-wrap::before {
-  content: "";
-  position: absolute;
-  inset: 8% 6% 10% 4%;
-  background:
-    radial-gradient(circle at 46% 28%, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.06) 34%, transparent 56%),
-    radial-gradient(circle at 58% 36%, rgba(78, 120, 146, 0.16), rgba(78, 120, 146, 0.03) 54%, transparent 72%);
-  filter: blur(28px);
-  pointer-events: none;
+  display: none;
 }
 
 .hero-portrait {
   margin: 0;
   padding-top: 0;
-  background: transparent;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  align-self: end;
+  background: #ffffff;
   border: 0;
   box-shadow: none;
   position: relative;
@@ -196,9 +192,14 @@ a {
 .hero-portrait img {
   display: block;
   width: 108%;
+  max-width: none;
+  max-height: none;
   height: auto;
-  opacity: 0.82;
-  filter: grayscale(1) contrast(0.94);
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1;
+  filter: grayscale(1) brightness(1.04) contrast(1.03);
 }
 
 .eyebrow,
@@ -1234,6 +1235,16 @@ h1 span {
 
   .proof-strip p:not(:first-child)::before {
     display: none;
+  }
+
+  .hero-portrait-wrap {
+    max-width: 539px;
+    transform: none;
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    max-width: 100%;
   }
 
   .list-row {
