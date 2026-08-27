@@ -14,7 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css?v=3">
+    <script src="./script.js?v=2" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -22,6 +23,7 @@
         <a class="brand" href="/">Nick Hanauer</a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#about">About</a>
+          <a href="#class-traitor">Class Traitor</a>
           <a href="#ideas">Economics</a>
           <a href="#books">Publications</a>
           <a href="#civic">Civic</a>
@@ -48,7 +50,7 @@
           </div>
           <div class="hero-portrait-wrap">
             <figure class="hero-portrait">
-              <img src="./assets/nick-hero-no-glasses-transparent.png" alt="Illustrated portrait of Nick Hanauer">
+              <img src="./assets/nick-hero-illustration-transparent.png" alt="Illustrated portrait of Nick Hanauer">
             </figure>
           </div>
         </section>
@@ -126,6 +128,76 @@
           </div>
         </section>
 
+        <section class="section class-traitor" id="class-traitor" aria-labelledby="class-traitor-title">
+          <div class="class-traitor-layout">
+            <div class="section-heading-stack class-traitor-rail">
+              <p class="section-kicker">New on YouTube</p>
+              <h2 id="class-traitor-title">Class Traitor.</h2>
+            </div>
+            <div class="class-traitor-content">
+              <div class="class-traitor-topline">
+                <p>
+                  Nick Hanauer is a venture capitalist, early Amazon investor,
+                  and proud class traitor. On this channel, he exposes the myths
+                  plutocrats use to funnel wealth upward and makes the case for a
+                  new economics, where a thriving middle class is the true engine
+                  of growth.
+                </p>
+              </div>
+              <div class="class-traitor-header">
+                <div class="class-traitor-visual">
+                  <img
+                    class="class-traitor-banner"
+                    src="./assets/class-traitor-lockup.jpg"
+                    alt="Nick Hanauer: Class Traitor"
+                  >
+                </div>
+                <div class="class-traitor-action">
+                  <a
+                    class="button class-traitor-button"
+                    href="https://www.youtube.com/@nickhanauerclasstraitor"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visit Class Traitor on YouTube
+                  </a>
+                </div>
+              </div>
+
+              <div class="class-traitor-stage" aria-live="polite" hidden>
+                <div class="class-traitor-stage-frame"></div>
+              </div>
+
+              <div class="class-traitor-videos" aria-label="Latest Class Traitor videos">
+                <article class="class-traitor-video">
+                  <div class="class-traitor-frame">
+                    <button class="video-poster" type="button" data-youtube-id="oIpr_ajGm8o" aria-label="Play How We Fix Social Security">
+                      <img src="./assets/class-traitor-social-security.jpg" alt="">
+                      <span class="video-play" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </article>
+                <article class="class-traitor-video">
+                  <div class="class-traitor-frame">
+                    <button class="video-poster" type="button" data-youtube-id="lfgv3SVcLHk" aria-label="Play An Economic Dam Is Breaking">
+                      <img src="./assets/class-traitor-economic-dam.jpg" alt="">
+                      <span class="video-play" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </article>
+                <article class="class-traitor-video">
+                  <div class="class-traitor-frame">
+                    <button class="video-poster" type="button" data-youtube-id="ZjnrUi1CtH8" aria-label="Play The Pitchforks Are Here">
+                      <img src="./assets/class-traitor-pitchforks.jpg" alt="">
+                      <span class="video-play" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="section economics" id="ideas">
           <div class="economics-layout">
             <div class="section-heading-stack economics-rail">
@@ -187,6 +259,24 @@
             <div class="publications-content">
               <div class="list-block">
                 <article class="list-row">
+                  <p class="list-label">2026</p>
+                  <h3>
+                    <a href="https://www.geekwire.com/2026/opinion-which-capitalism-are-we-defending/" target="_blank" rel="noreferrer">
+                      Opinion: Which capitalism are we defending?
+                    </a>
+                  </h3>
+                  <p>GeekWire</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2025</p>
+                  <h3>
+                    <a href="https://democracyjournal.org/magazine/76/the-middle-out-moment-is-still-here/" target="_blank" rel="noreferrer">
+                      The Middle-Out Moment Is Still Here
+                    </a>
+                  </h3>
+                  <p>Democracy Journal</p>
+                </article>
+                <article class="list-row">
                   <p class="list-label">2024</p>
                   <h3>
                     <a href="https://democracyjournal.org/magazine/72/a-new-economics-takes-hold/" target="_blank" rel="noreferrer">
@@ -198,8 +288,17 @@
                 <article class="list-row">
                   <p class="list-label">2024</p>
                   <h3>
-                    <a href="https://newrepublic.com/article/185013/kamala-harris-corporate-greed" target="_blank" rel="noreferrer">
+                    <a href="https://newrepublic.com/article/184937/harris-price-gouging-corporations" target="_blank" rel="noreferrer">
                       A Very Good Sign: Kamala Harris Is Going Right at Corporate Greed
+                    </a>
+                  </h3>
+                  <p>The New Republic</p>
+                </article>
+                <article class="list-row">
+                  <p class="list-label">2024</p>
+                  <h3>
+                    <a href="https://newrepublic.com/article/186863/kamala-harris-economic-policy-new-majoritarian-center" target="_blank" rel="noreferrer">
+                      How Kamala Harris Is Creating a New Majoritarian Center
                     </a>
                   </h3>
                   <p>The New Republic</p>
