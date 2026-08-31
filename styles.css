@@ -204,6 +204,20 @@ a {
   filter: brightness(1.01) contrast(1.01);
 }
 
+@media (min-width: 981px) {
+  .hero {
+    transform: translateX(18px);
+  }
+
+  .hero-copy {
+    transform: translateX(38px);
+  }
+
+  .hero-portrait-wrap {
+    transform: translateX(-34px);
+  }
+}
+
 .eyebrow,
 .section-kicker,
 .feature-label,
