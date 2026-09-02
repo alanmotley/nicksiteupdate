@@ -3027,6 +3027,7 @@ h1 span {
 }
 
 .civic-page .civic-content {
+  align-items: stretch;
   display: grid;
   gap: 0;
   grid-column: 1;
@@ -3074,6 +3075,8 @@ h1 span {
 
 .civic-page .civic-body {
   background: var(--civic-paper);
+  display: flex;
+  flex-direction: column;
   min-height: 32rem;
   padding: clamp(2.5rem, 5vw, 5rem);
 }
@@ -3093,13 +3096,9 @@ h1 span {
 
 .civic-page .civic-content .hero-actions {
   align-items: center;
-  background: var(--civic-paper);
   display: flex;
-  grid-column: 2;
-  margin: -7rem 0 0;
-  padding: 0 clamp(2.5rem, 5vw, 5rem) clamp(2.5rem, 5vw, 5rem);
-  position: relative;
-  z-index: 1;
+  margin: auto 0 0;
+  padding: 1rem 0 0;
 }
 
 .civic-page .button-solid {
@@ -3192,7 +3191,7 @@ h1 span {
 }
 
 .media-page .media-rail .section-kicker {
-  align-self: end;
+  align-self: start;
   color: var(--ted-red);
   grid-column: 1 / -1;
   margin: 0;
@@ -3231,6 +3230,7 @@ h1 span {
   font-size: 1.08rem;
   line-height: 1.75;
   margin: 0;
+  margin-bottom: -0.45rem;
   max-width: 31rem;
 }
 
