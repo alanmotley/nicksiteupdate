@@ -1972,6 +1972,37 @@ h1 span {
   border-right: 1px solid var(--line);
 }
 
+.about-page .media-mention img {
+  filter: none;
+  height: auto;
+  object-fit: contain;
+}
+
+.about-page .media-mention-forbes img {
+  max-height: 2.75rem;
+  max-width: 74%;
+}
+
+.about-page .media-mention-bi img {
+  max-height: 2.1rem;
+  max-width: 88%;
+}
+
+.about-page .media-mention-times img {
+  max-height: 2.45rem;
+  max-width: 88%;
+}
+
+.about-page .media-mention-ted img {
+  max-height: 3rem;
+  max-width: 68%;
+}
+
+.about-page .media-mention-cnbc img {
+  max-height: 3.15rem;
+  max-width: 72%;
+}
+
 .media-wordmark {
   color: var(--about-ink);
   font-family: "Fraunces", Georgia, serif;
