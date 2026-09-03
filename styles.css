@@ -2111,6 +2111,40 @@ h1 span {
   top: 0.22em;
 }
 
+.home-page .hero-portrait-wrap::before,
+.publications-page .publications-rail::after,
+.publication-archive-hero::after,
+.business-page .business-rail::after,
+.connect-page .contact-rail::after,
+.civic-page .civic-rail::after,
+.media-page .media-rail::after {
+  animation: editorial-word-reveal 1.35s cubic-bezier(0.2, 0.75, 0.2, 1) 120ms both;
+}
+
+@keyframes editorial-word-reveal {
+  from {
+    opacity: 0;
+    transform: translateX(7%) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .hero-portrait-wrap::before,
+  .publications-page .publications-rail::after,
+  .publication-archive-hero::after,
+  .business-page .business-rail::after,
+  .connect-page .contact-rail::after,
+  .civic-page .civic-rail::after,
+  .media-page .media-rail::after {
+    animation: none;
+  }
+}
+
 .publications-page .publications-rail .section-kicker {
   align-self: end;
   color: #d7a39b;
