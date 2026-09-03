@@ -2793,9 +2793,14 @@ h1 span {
   background: var(--business-paper);
   border: 0;
   border-bottom: 1px solid rgba(19, 37, 46, 0.16);
+  display: grid;
+  gap: 1.5rem;
+  grid-template-rows: auto 7rem auto;
+  justify-items: center;
   min-height: 17.5rem;
   padding: clamp(2rem, 4vw, 4rem);
   position: relative;
+  text-align: center;
 }
 
 .business-page .business-highlight:nth-child(odd) {
@@ -2827,11 +2832,49 @@ h1 span {
   max-width: 9ch;
 }
 
+.business-page .business-highlight .business-outcome-logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  max-width: none;
+  min-height: 0;
+  width: 100%;
+}
+
+.business-outcome-logo img {
+  display: block;
+  height: auto;
+  max-height: 4.75rem;
+  max-width: min(15rem, 100%);
+  object-fit: contain;
+  width: auto;
+}
+
+.business-outcome-logo-aquantive img {
+  max-height: none;
+  max-width: none;
+  mix-blend-mode: multiply;
+  width: min(16rem, 100%);
+}
+
+.business-outcome-logo-insitu img {
+  max-height: none;
+  max-width: none;
+  width: min(13.25rem, 100%);
+}
+
+.business-outcome-logo-market-leader img {
+  max-height: none;
+  max-width: none;
+  width: min(16rem, 100%);
+}
+
 .business-page .business-highlight p {
   color: #52646b;
   font-size: 1rem;
   line-height: 1.55;
-  margin-top: 1rem;
+  margin: 0;
   max-width: 24rem;
 }
 
