@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css?v=17">
-    <script src="./script.js?v=3" defer></script>
+    <script src="./script.js?v=4" defer></script>
   </head>
   <body class="detail-page class-traitor-page">
     <div class="page-shell">
@@ -65,9 +65,9 @@
                 </div>
               </div>
 
-              <div class="class-traitor-stage" aria-live="polite">
+              <div class="class-traitor-stage" aria-live="polite" data-class-traitor-stage>
                 <div class="class-traitor-stage-frame">
-                  <button class="video-poster class-traitor-main-poster is-active" type="button" data-youtube-id="oIpr_ajGm8o" aria-label="Play How We Fix Social Security">
+                  <button class="video-poster class-traitor-main-poster is-active" type="button" data-youtube-id="oIpr_ajGm8o" aria-label="Play How We Fix Social Security" data-class-traitor-featured>
                     <img src="./assets/class-traitor-social-security.jpg" alt="">
                     <span class="main-video-label"><small>Featured video</small><strong>How We Fix Social Security</strong></span>
                     <span class="video-play" aria-hidden="true"></span>
@@ -79,7 +79,7 @@
                 <div><p class="section-kicker">Latest videos</p><h2>More from Class Traitor.</h2></div>
                 <p>Choose a video to watch in the player.</p>
               </div>
-              <div class="class-traitor-videos" aria-label="Latest Class Traitor videos">
+              <div class="class-traitor-videos" aria-label="Latest Class Traitor videos" data-class-traitor-videos>
                 <article class="class-traitor-video">
                   <div class="class-traitor-frame">
                     <button class="video-poster is-active" type="button" data-youtube-id="oIpr_ajGm8o" aria-label="Play How We Fix Social Security">
@@ -113,8 +113,7 @@
         </section>
       </main>
       <footer class="site-footer">
-        <p>© 2026 Nick Hanauer</p>
-        <p>Multi-page website concept</p>
+        <p>© <span data-current-year>2026</span> Nick Hanauer</p>
       </footer>
     </div>
   </body>

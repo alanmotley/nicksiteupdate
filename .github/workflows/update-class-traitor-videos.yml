@@ -1,0 +1,34 @@
+name: Update Class Traitor videos
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-class-traitor-videos
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the latest videos
+        run: python3 scripts/update-class-traitor-videos.py
+
+      - name: Commit a changed video list
+        run: |
+          if git diff --quiet -- data/class-traitor-videos.json; then
+            echo "The Class Traitor video list is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/class-traitor-videos.json
+          git commit -m "Update Class Traitor videos"
+          git push

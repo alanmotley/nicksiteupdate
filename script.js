@@ -1,4 +1,10 @@
-document.querySelectorAll(".video-poster").forEach((poster) => {
+document.querySelectorAll("[data-current-year]").forEach((year) => {
+  year.textContent = new Date().getFullYear();
+});
+
+const bindVideoPoster = (poster) => {
+  if (poster.dataset.videoBound) return;
+  poster.dataset.videoBound = "true";
   poster.addEventListener("click", () => {
     const videoId = poster.dataset.youtubeId;
     const title = poster.getAttribute("aria-label").replace(/^Play\s+/, "");
@@ -20,7 +26,71 @@ document.querySelectorAll(".video-poster").forEach((poster) => {
     });
     stage.scrollIntoView({ behavior: "smooth", block: "start" });
   });
-});
+};
+
+document.querySelectorAll(".video-poster").forEach(bindVideoPoster);
+
+const classTraitorVideos = document.querySelector("[data-class-traitor-videos]");
+
+if (classTraitorVideos) {
+  const createVideoCard = (video, index) => {
+    const article = document.createElement("article");
+    article.className = "class-traitor-video";
+
+    const frame = document.createElement("div");
+    frame.className = "class-traitor-frame";
+
+    const poster = document.createElement("button");
+    poster.className = `video-poster${index === 0 ? " is-active" : ""}`;
+    poster.type = "button";
+    poster.dataset.youtubeId = video.id;
+    poster.setAttribute("aria-label", `Play ${video.title}`);
+
+    const image = document.createElement("img");
+    image.src = video.thumbnail;
+    image.alt = "";
+    image.loading = "lazy";
+
+    const play = document.createElement("span");
+    play.className = "video-play";
+    play.setAttribute("aria-hidden", "true");
+    poster.append(image, play);
+    frame.append(poster);
+
+    const meta = document.createElement("div");
+    meta.className = "class-traitor-video-meta";
+    const number = document.createElement("span");
+    number.textContent = String(index + 1).padStart(2, "0");
+    const heading = document.createElement("h3");
+    heading.textContent = video.title;
+    meta.append(number, heading);
+    article.append(frame, meta);
+    bindVideoPoster(poster);
+    return article;
+  };
+
+  fetch(`./data/class-traitor-videos.json?v=${Date.now()}`, { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error("Video list unavailable");
+      return response.json();
+    })
+    .then(({ videos }) => {
+      if (!Array.isArray(videos) || videos.length < 3) return;
+      const latest = videos.slice(0, 3);
+      classTraitorVideos.replaceChildren(...latest.map(createVideoCard));
+
+      const featured = document.querySelector("[data-class-traitor-featured]");
+      if (!featured) return;
+      const first = latest[0];
+      featured.dataset.youtubeId = first.id;
+      featured.setAttribute("aria-label", `Play ${first.title}`);
+      featured.querySelector("img").src = first.thumbnail;
+      featured.querySelector("strong").textContent = first.title;
+    })
+    .catch(() => {
+      // The hand-curated HTML remains usable if an update cannot be loaded.
+    });
+}
 
 
 const podcastList = document.querySelector("[data-podcast-list]");

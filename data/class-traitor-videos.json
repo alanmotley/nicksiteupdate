@@ -1,0 +1,26 @@
+{
+  "channel": "https://www.youtube.com/@nickhanauerclasstraitor/videos",
+  "videos": [
+    {
+      "id": "oIpr_ajGm8o",
+      "title": "How We Fix Social Security",
+      "published": "3 weeks ago",
+      "thumbnail": "https://i.ytimg.com/vi/oIpr_ajGm8o/hqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=oIpr_ajGm8o"
+    },
+    {
+      "id": "lfgv3SVcLHk",
+      "title": "An Economic Dam Is Breaking",
+      "published": "1 month ago",
+      "thumbnail": "https://i.ytimg.com/vi/lfgv3SVcLHk/hqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=lfgv3SVcLHk"
+    },
+    {
+      "id": "ZjnrUi1CtH8",
+      "title": "The Pitchforks Are Here",
+      "published": "2 months ago",
+      "thumbnail": "https://i.ytimg.com/vi/ZjnrUi1CtH8/hqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ZjnrUi1CtH8"
+    }
+  ]
+}
