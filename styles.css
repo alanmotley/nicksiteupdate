@@ -3386,6 +3386,7 @@ h1 span {
 }
 
 .class-traitor-page .detail-section {
+  --ct-section-gutter: clamp(1.5rem, 4vw, 4rem);
   border-bottom: 0;
   margin: clamp(1rem, 2vw, 2rem) 0 3rem;
   padding: 0;
@@ -3438,19 +3439,19 @@ h1 span {
 }
 
 .class-traitor-page .class-traitor-logo-heading {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: var(--ct-section-gutter);
+  margin-right: var(--ct-section-gutter);
   margin-top: 0;
   max-width: none;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: auto;
 }
 
 .class-traitor-page .class-traitor-logo-heading img {
   max-width: none;
-  transform: translateX(-16.6667%);
-  width: 150%;
+  transform: translateX(-26.6%);
+  width: 190%;
 }
 
 .class-traitor-page .class-traitor-topline p {
@@ -3466,7 +3467,7 @@ h1 span {
   column-gap: clamp(2.5rem, 5vw, 5rem);
   row-gap: 1.5rem;
   grid-template-columns: minmax(0, 1fr) auto;
-  padding: clamp(1.5rem, 4vw, 4rem);
+  padding: var(--ct-section-gutter);
 }
 
 .class-traitor-page .class-traitor-layout {

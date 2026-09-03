@@ -13,7 +13,7 @@ const bindVideoPoster = (poster) => {
     const frame = section.querySelector(".class-traitor-stage-frame");
     const iframe = document.createElement("iframe");
 
-    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&hl=en&cc_lang_pref=en`;
     iframe.title = title;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.referrerPolicy = "strict-origin-when-cross-origin";

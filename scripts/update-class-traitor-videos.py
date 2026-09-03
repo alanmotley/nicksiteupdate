@@ -11,6 +11,7 @@ import urllib.request
 
 
 CHANNEL_URL = "https://www.youtube.com/@nickhanauerclasstraitor/videos"
+FETCH_URL = f"{CHANNEL_URL}?hl=en&gl=US"
 OUTPUT = pathlib.Path(__file__).resolve().parents[1] / "data" / "class-traitor-videos.json"
 USER_AGENT = "Mozilla/5.0 (compatible; NickHanauerSite/1.0; +https://www.nickhanauer.com/)"
 
@@ -82,7 +83,14 @@ def video_fields(renderer):
 
 
 def fetch_latest():
-    request = urllib.request.Request(CHANNEL_URL, headers={"User-Agent": USER_AGENT})
+    request = urllib.request.Request(
+        FETCH_URL,
+        headers={
+            "Accept-Language": "en-US,en;q=0.9",
+            "Cookie": "PREF=hl=en&gl=US",
+            "User-Agent": USER_AGENT,
+        },
+    )
     with urllib.request.urlopen(request, timeout=30) as response:
         html = response.read().decode("utf-8")
 
