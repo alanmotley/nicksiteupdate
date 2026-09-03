@@ -36,6 +36,35 @@ body {
   background: #ffffff;
 }
 
+.page-shell {
+  animation: page-enter 220ms ease-out backwards;
+  transition: opacity 170ms ease, transform 170ms ease;
+}
+
+body.page-leaving .page-shell {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shell {
+    animation: none;
+    transition: none;
+  }
+}
+
 img,
 iframe {
   max-width: 100%;
