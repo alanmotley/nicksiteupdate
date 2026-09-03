@@ -2505,6 +2505,33 @@ h1 span {
   min-width: 0;
 }
 
+.publication-archive-page .list-row .publication-wordmark img {
+  display: block;
+  height: auto;
+  max-height: 2.25rem;
+  max-width: 100%;
+  object-fit: contain;
+  width: min(11rem, 100%);
+}
+
+.publication-archive-page .list-row .publication-tnr img {
+  max-height: 1.65rem;
+  width: min(12.5rem, 100%);
+}
+
+.publication-archive-page .list-row .publication-seattle-times img {
+  max-height: 1.65rem;
+}
+
+.publication-archive-page .list-row .publication-time img,
+.publication-archive-page .list-row .publication-ted img {
+  max-height: 2.55rem;
+}
+
+.publication-archive-page .list-row .publication-prospect img {
+  max-height: 2.65rem;
+}
+
 .publications-page .list-row:first-child .list-label {
   color: #d17b72;
   padding-top: 2rem;
@@ -2531,8 +2558,12 @@ h1 span {
 }
 
 .publications-page .list-row:first-child .publication-wordmark {
-  color: #f1a04f;
-  font-size: 1.5rem;
+  background: transparent;
+  padding: 0;
+}
+
+.publications-page .list-row:first-child .publication-wordmark img {
+  filter: brightness(1.75) saturate(1.15);
 }
 
 /* Business venture profile */
