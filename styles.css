@@ -2153,6 +2153,33 @@ h1 span {
   line-height: 1;
 }
 
+.publication-outlets .publication-wordmark img {
+  display: block;
+  height: auto;
+  max-height: 2.4rem;
+  max-width: 88%;
+  object-fit: contain;
+  width: auto;
+}
+
+.publication-outlets .publication-democracy img {
+  max-height: 2.8rem;
+}
+
+.publication-outlets .publication-tnr img {
+  max-width: 92%;
+}
+
+.publication-outlets .publication-time img {
+  max-height: 2.65rem;
+  max-width: 72%;
+}
+
+.publication-outlets .publication-prospect img {
+  max-height: 2.9rem;
+  max-width: 94%;
+}
+
 .publication-geekwire {
   color: #e57026;
   font-family: "Public Sans", sans-serif;
