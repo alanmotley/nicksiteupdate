@@ -3367,7 +3367,7 @@ h1 span {
 
 .class-traitor-page .site-header {
   background: rgba(13, 27, 39, 0.96);
-  border-bottom: 1px dashed rgba(246, 185, 29, 0.72);
+  border-bottom: 1px dashed var(--ct-yellow);
 }
 
 .class-traitor-page .brand,
@@ -3386,9 +3386,9 @@ h1 span {
 }
 
 .class-traitor-page .detail-section {
-  border: 1px dashed rgba(246, 185, 29, 0.52);
+  border-bottom: 0;
   margin: clamp(1rem, 2vw, 2rem) 0 3rem;
-  padding: clamp(1.5rem, 4vw, 4rem);
+  padding: 0;
 }
 
 .class-traitor-page .class-traitor-layout,
@@ -3440,34 +3440,37 @@ h1 span {
 .class-traitor-page .class-traitor-logo-heading {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
   max-width: none;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }
 
 .class-traitor-page .class-traitor-logo-heading img {
-  width: 100%;
-}
-
-.class-traitor-page .class-traitor-logo-heading::after {
-  border: 1px dashed rgba(246, 185, 29, 0.9);
-  content: "";
-  inset: clamp(0.55rem, 1vw, 0.9rem);
-  pointer-events: none;
-  position: absolute;
+  max-width: none;
+  transform: translateX(-16.6667%);
+  width: 150%;
 }
 
 .class-traitor-page .class-traitor-topline p {
   color: var(--ct-tan);
   font-size: clamp(1.2rem, 1.8vw, 1.65rem);
   line-height: 1.34;
-  max-width: 40rem;
+  max-width: 46rem;
 }
 
 .class-traitor-page .class-traitor-content {
+  align-items: center;
   display: grid;
-  gap: 1.5rem 2rem;
+  column-gap: clamp(2.5rem, 5vw, 5rem);
+  row-gap: 1.5rem;
   grid-template-columns: minmax(0, 1fr) auto;
+  padding: clamp(1.5rem, 4vw, 4rem);
+}
+
+.class-traitor-page .class-traitor-layout {
+  gap: 0;
 }
 
 .class-traitor-page .class-traitor-topline {
@@ -3476,11 +3479,11 @@ h1 span {
 }
 
 .class-traitor-page .class-traitor-header {
+  align-self: center;
   background: transparent;
   box-shadow: none;
   justify-content: flex-end;
   min-height: auto;
-  align-self: end;
   grid-column: 2;
 }
 
@@ -3505,12 +3508,13 @@ h1 span {
 }
 
 .class-traitor-page .class-traitor-stage {
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
 }
 
 .class-traitor-page .class-traitor-stage-frame {
-  border: 1px solid rgba(234, 220, 194, 0.48);
   box-shadow: 14px 14px 0 var(--ct-navy-deep);
+  outline: 1px dashed var(--ct-yellow);
+  outline-offset: clamp(0.55rem, 1vw, 0.9rem);
 }
 
 .class-traitor-main-poster::after {
@@ -3553,10 +3557,10 @@ h1 span {
 
 .class-traitor-library-heading {
   align-items: end;
-  border-top: 1px dashed rgba(246, 185, 29, 0.5);
+  border-top: 1px dashed var(--ct-yellow);
   display: flex;
   justify-content: space-between;
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  margin-top: clamp(2rem, 3vw, 3rem);
   padding-top: 1.5rem;
 }
 
@@ -3576,20 +3580,20 @@ h1 span {
 
 .class-traitor-page .class-traitor-videos {
   gap: 1px;
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
 }
 
 .class-traitor-page .class-traitor-video {
-  background: var(--ct-navy-deep);
-  border: 1px solid rgba(234, 220, 194, 0.3);
-  padding: 0.65rem;
+  background: transparent;
+  border: 0;
+  padding: 0;
 }
 
 .class-traitor-video-meta {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.65rem;
   grid-template-columns: auto 1fr;
-  padding: 1.15rem 0.35rem 0.55rem;
+  padding: 1.65rem 0.1rem 0;
 }
 
 .class-traitor-video-meta span {
@@ -3616,9 +3620,18 @@ h1 span {
   background: var(--ct-navy-deep);
 }
 
+.class-traitor-page .class-traitor-videos {
+  gap: clamp(2.25rem, 3vw, 3rem);
+}
+
+.class-traitor-page .class-traitor-frame {
+  outline: 1px dashed var(--ct-yellow);
+  outline-offset: clamp(0.55rem, 1vw, 0.9rem);
+}
+
 .class-traitor-page .site-footer {
   background: transparent;
-  border-top: 1px dashed rgba(246, 185, 29, 0.52);
+  border-top: 1px dashed var(--ct-yellow);
   color: rgba(234, 220, 194, 0.68);
 }
 
