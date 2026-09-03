@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Nick Hanauer monogram</title>
+  <rect width="64" height="64" fill="#ffffff"/>
+  <g fill="#111418">
+    <path d="M7 46V12h6l12 22V12h6v34h-6L13 24v22z"/>
+    <path d="M36 12h6v13h11V12h6v34h-6V31H42v15h-6z"/>
+  </g>
+  <path d="M7 53h52" stroke="#9f3534" stroke-width="3" stroke-linecap="square"/>
+</svg>
