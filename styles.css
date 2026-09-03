@@ -3301,12 +3301,10 @@ h1 span {
 }
 
 .ted-wordmark {
-  color: var(--ted-red);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(7rem, 17vw, 17rem);
-  font-weight: 900;
-  letter-spacing: -0.085em;
-  line-height: 0.68;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: clamp(17rem, 31vw, 31rem);
 }
 
 .ted-tagline {
@@ -4377,7 +4375,7 @@ h1 span {
   }
 
   .ted-wordmark {
-    font-size: clamp(6.5rem, 36vw, 10rem);
+    width: min(100%, 19rem);
   }
 
   .civic-page .civic-rail {
