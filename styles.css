@@ -3134,26 +3134,56 @@ h1 span {
 
 .connect-channel-grid {
   display: grid;
-  gap: 1px;
+  gap: clamp(1rem, 2vw, 1.5rem);
   grid-column: 1 / -1;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: clamp(3.5rem, 6vw, 6rem);
+  margin-top: clamp(3rem, 5vw, 4.5rem);
 }
 
 .connect-channel-grid a {
-  background: var(--connect-paper);
+  background: #f7f8f6;
+  border: 1px solid rgba(19, 37, 46, 0.16);
   color: var(--connect-ink);
   display: flex;
   flex-direction: column;
-  min-height: 18rem;
-  padding: clamp(2rem, 4vw, 4rem);
+  justify-content: center;
+  min-height: 13rem;
+  padding: clamp(2rem, 3.25vw, 3.25rem);
+  position: relative;
   text-decoration: none;
-  transition: background 160ms ease, color 160ms ease;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
-.connect-channel-grid a:hover {
+.connect-channel-grid a:first-child {
+  border-top: 4px solid #f6b91d;
+}
+
+.connect-channel-grid a:last-child {
+  border-top: 4px solid var(--connect-red);
+}
+
+.connect-channel-grid a::after {
+  color: var(--connect-red);
+  content: "↗";
+  font-size: 1.15rem;
+  line-height: 1;
+  position: absolute;
+  right: clamp(1.5rem, 2.5vw, 2.5rem);
+  top: clamp(1.5rem, 2.5vw, 2.5rem);
+  transition: transform 160ms ease;
+}
+
+.connect-channel-grid a:hover,
+.connect-channel-grid a:focus-visible {
   background: var(--connect-ink);
   color: #fff;
+  transform: translateY(-3px);
+}
+
+.connect-channel-grid a:hover::after,
+.connect-channel-grid a:focus-visible::after {
+  color: #fff;
+  transform: translate(2px, -2px);
 }
 
 .connect-channel-grid span {
@@ -3162,6 +3192,7 @@ h1 span {
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.12em;
+  margin-bottom: 1rem;
   text-transform: uppercase;
 }
 
@@ -3171,18 +3202,19 @@ h1 span {
   font-weight: 500;
   letter-spacing: -0.04em;
   line-height: 0.95;
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .connect-channel-grid small {
   color: #596970;
   font-size: 0.92rem;
   line-height: 1.55;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   max-width: 25rem;
 }
 
-.connect-channel-grid a:hover small {
+.connect-channel-grid a:hover small,
+.connect-channel-grid a:focus-visible small {
   color: rgba(255, 255, 255, 0.72);
 }
 
