@@ -1900,6 +1900,11 @@ h1 span {
   object-position: 18% center;
 }
 
+.about-page .about-image video::-webkit-media-controls,
+.about-page .about-image video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
 .about-page .about-copy {
   display: grid;
   gap: clamp(2.5rem, 5vw, 5.5rem);
