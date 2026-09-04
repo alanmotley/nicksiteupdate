@@ -445,7 +445,8 @@ h1 span {
   align-self: start;
 }
 
-.about-image img {
+.about-image img,
+.about-image video {
   display: block;
   width: 100%;
   height: auto;
@@ -1891,7 +1892,8 @@ h1 span {
   z-index: 2;
 }
 
-.about-page .about-image img {
+.about-page .about-image img,
+.about-page .about-image video {
   height: 100%;
   min-height: 36rem;
   object-fit: cover;
@@ -4293,7 +4295,8 @@ h1 span {
     min-height: 26rem;
   }
 
-  .about-page .about-image img {
+  .about-page .about-image img,
+  .about-page .about-image video {
     min-height: 26rem;
   }
 

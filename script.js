@@ -2,6 +2,22 @@ document.querySelectorAll("[data-current-year]").forEach((year) => {
   year.textContent = new Date().getFullYear();
 });
 
+document.querySelectorAll("[data-hover-video]").forEach((video) => {
+  const playVideo = () => {
+    video.play().catch(() => {});
+  };
+
+  const resetVideo = () => {
+    video.pause();
+    if (video.readyState >= 1) video.currentTime = 0;
+  };
+
+  video.addEventListener("mouseenter", playVideo);
+  video.addEventListener("mouseleave", resetVideo);
+  video.addEventListener("focus", playVideo);
+  video.addEventListener("blur", resetVideo);
+});
+
 const bindVideoPoster = (poster) => {
   if (poster.dataset.videoBound) return;
   poster.dataset.videoBound = "true";
