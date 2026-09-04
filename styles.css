@@ -2293,6 +2293,117 @@ h1 span {
   color: #e62b1e;
 }
 
+.publication-books {
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.publication-books-heading {
+  align-items: end;
+  border-top: 5px solid var(--pub-ink);
+  display: grid;
+  gap: 1.5rem clamp(2rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.55fr);
+  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+  padding-top: 2rem;
+}
+
+.publication-books-heading .section-kicker {
+  margin: 0 0 1.2rem;
+}
+
+.publication-books-heading h2 {
+  color: var(--pub-ink);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.7rem, 5vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin: 0;
+  max-width: 14ch;
+  text-transform: none;
+}
+
+.publication-books-heading > p {
+  color: #59686f;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 29rem;
+}
+
+.publication-book-grid {
+  display: grid;
+  gap: clamp(1.1rem, 2vw, 1.75rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.publication-book-card {
+  background: var(--pub-paper);
+  border: 1px solid rgba(19, 37, 46, 0.2);
+  color: var(--pub-ink);
+  display: grid;
+  grid-template-columns: minmax(9.5rem, 0.72fr) minmax(0, 1fr);
+  min-width: 0;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.publication-book-card:hover {
+  border-color: rgba(19, 37, 46, 0.62);
+  box-shadow: 0 18px 34px rgba(19, 37, 46, 0.12);
+  transform: translateY(-3px);
+}
+
+.publication-book-cover {
+  align-items: center;
+  background: #dfe7e4;
+  display: flex;
+  justify-content: center;
+  padding: clamp(1.25rem, 2.6vw, 2.25rem);
+}
+
+.publication-book-cover img {
+  box-shadow: 0 14px 28px rgba(19, 37, 46, 0.2);
+  display: block;
+  height: auto;
+  max-height: 18rem;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 240ms ease;
+  width: auto;
+}
+
+.publication-book-card:hover .publication-book-cover img {
+  transform: scale(1.025);
+}
+
+.publication-book-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.55;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.publication-book-copy strong {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.65rem, 2.65vw, 2.55rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin: 1.15rem 0 1rem;
+}
+
+.publication-book-copy > span:not(.publication-card-meta):not(.publication-card-read) {
+  color: #59686f;
+  font-size: 0.94rem;
+}
+
+.publication-book-copy .publication-card-read {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
 .publication-selected {
   margin-bottom: clamp(4rem, 8vw, 8rem);
 }
@@ -4382,6 +4493,7 @@ h1 span {
   }
 
   .publication-selected-heading,
+  .publication-books-heading,
   .publication-archive-heading {
     grid-template-columns: 1fr;
   }
@@ -4394,6 +4506,10 @@ h1 span {
 
   .publication-image-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .publication-book-grid {
+    grid-template-columns: 1fr;
   }
 
   .publications-page .list-row:first-child {
@@ -4561,6 +4677,18 @@ h1 span {
 
   .publication-image-grid {
     grid-template-columns: 1fr;
+  }
+
+  .publication-book-card {
+    grid-template-columns: minmax(8.75rem, 0.6fr) minmax(0, 1fr);
+  }
+
+  .publication-book-cover {
+    padding: 1.25rem;
+  }
+
+  .publication-book-copy {
+    padding: 1.4rem;
   }
 
   .media-page .media-rail {
