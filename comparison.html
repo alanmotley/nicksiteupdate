@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <title>Nick Hanauer | Website Comparison</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./comparison.css?v=4">
+    <script src="./comparison.js?v=7" defer></script>
+  </head>
+  <body>
+    <header class="comparison-header">
+      <div class="comparison-title">
+        <a href="./index.html" aria-label="Return to the redesigned Nick Hanauer website">Nick Hanauer</a>
+        <span>Website comparison</span>
+      </div>
+      <div class="comparison-tools">
+        <button type="button" class="philosophy-button">Design philosophy</button>
+        <div class="view-switcher" role="group" aria-label="Choose comparison view">
+          <button type="button" class="view-button is-active" data-view="both" aria-pressed="true">Side by side</button>
+          <button type="button" class="view-button" data-view="current" aria-pressed="false">Current</button>
+          <button type="button" class="view-button" data-view="proposed" aria-pressed="false">Redesign</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="comparison-grid" data-active-view="both">
+      <section class="site-panel current-panel" aria-labelledby="current-title">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-label">Before</p>
+            <h1 id="current-title">Current website</h1>
+          </div>
+          <a href="https://www.nickhanauer.com/" target="_blank" rel="noopener">Open current site</a>
+        </div>
+        <div class="site-viewport image-viewport">
+          <div class="current-site-capture" data-page="home">
+            <img class="current-page-image" src="./assets/current-site-home.png" width="1425" height="2176" alt="Full-page capture of the homepage on Nick Hanauer's current website">
+            <nav class="capture-links" aria-label="Navigation for Nick Hanauer's current website">
+              <button type="button" class="capture-link capture-home" data-current-page="home"><span>Home</span></button>
+              <button type="button" class="capture-link capture-about" data-current-page="about"><span>About</span></button>
+              <button type="button" class="capture-link capture-economics" data-current-page="economics"><span>Nick on Economics</span></button>
+              <button type="button" class="capture-link capture-civic" data-current-page="civic"><span>Civic Activism</span></button>
+              <button type="button" class="capture-link capture-publications" data-current-page="publications"><span>Publications</span></button>
+              <button type="button" class="capture-link capture-business" data-current-page="business"><span>Business</span></button>
+              <button type="button" class="capture-link capture-contact" data-current-page="contact"><span>Contact</span></button>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-panel proposed-panel" aria-labelledby="proposed-title">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-label">After</p>
+            <h1 id="proposed-title">Proposed redesign</h1>
+          </div>
+          <a class="proposed-open-link" href="./index.html" target="_blank" rel="noopener">Open redesign</a>
+        </div>
+        <div class="site-viewport live-viewport">
+          <div class="live-canvas">
+            <iframe src="./index.html" title="Live preview of the proposed Nick Hanauer website redesign"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="philosophy-dialog" aria-labelledby="philosophy-title">
+      <button type="button" class="dialog-close" aria-label="Close design philosophy">×</button>
+      <p class="dialog-kicker">Design philosophy</p>
+      <h2 id="philosophy-title"></h2>
+      <div class="dialog-copy"></div>
+      <button type="button" class="dialog-continue">View the transformation</button>
+    </dialog>
+  </body>
+</html>
