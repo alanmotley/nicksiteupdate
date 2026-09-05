@@ -218,6 +218,48 @@ if (podcastList) {
     });
 }
 
+const civicFeed = document.querySelector("[data-civic-feed]");
+
+if (civicFeed) {
+  const formatCivicDate = (value) =>
+    new Date(`${value}T12:00:00`).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+
+  const createCivicEntry = (entry) => {
+    const article = document.createElement("article");
+    article.className = "civic-feed-card";
+
+    const meta = document.createElement("p");
+    meta.className = "civic-feed-meta";
+    meta.textContent = `${formatCivicDate(entry.date)} · ${entry.author || "Civic Ventures"}`;
+    const heading = document.createElement("h3");
+    heading.textContent = entry.title;
+    const description = document.createElement("p");
+    description.textContent = entry.description;
+    const link = document.createElement("a");
+    link.href = entry.link;
+    link.innerHTML = 'Read article <span aria-hidden="true">↗</span>';
+    article.append(meta, heading, description, link);
+    return article;
+  };
+
+  fetch(`./data/civic-feed.json?v=${Date.now()}`, { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error("Civic feed unavailable");
+      return response.json();
+    })
+    .then(({ entries }) => {
+      if (!Array.isArray(entries) || entries.length === 0) return;
+      civicFeed.replaceChildren(...entries.slice(0, 3).map(createCivicEntry));
+    })
+    .catch(() => {
+      // The static newsletter card remains usable if the feed cannot load.
+    });
+}
+
 const pageTransitionDuration = 170;
 
 window.addEventListener("pageshow", () => {
