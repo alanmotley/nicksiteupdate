@@ -3708,7 +3708,7 @@ h1 span {
 /* TED-led media page */
 .media-page {
   --ted-red: #e62b1e;
-  --ted-black: #090909;
+  --ted-black: #000000;
   --ted-white: #f7f7f5;
   background: var(--ted-black);
   color: var(--ted-white);
@@ -3749,7 +3749,7 @@ h1 span {
 
 .media-page .media-rail {
   background:
-    linear-gradient(115deg, rgba(9, 9, 9, 0.98), rgba(35, 35, 35, 0.96)),
+    linear-gradient(115deg, rgba(0, 0, 0, 0.99), rgba(31, 31, 31, 0.96)),
     radial-gradient(circle at 80% 25%, rgba(230, 43, 30, 0.2), transparent 32%);
   display: grid;
   gap: 1.75rem clamp(2rem, 6vw, 6rem);
