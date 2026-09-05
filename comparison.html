@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./comparison.css?v=8">
-    <script src="./comparison.js?v=10" defer></script>
+    <link rel="stylesheet" href="./comparison.css?v=9">
+    <script src="./comparison.js?v=11" defer></script>
   </head>
   <body>
     <header class="comparison-header">
@@ -19,6 +19,11 @@
         <span>Website comparison</span>
       </div>
       <div class="comparison-tools">
+        <div class="page-stepper" aria-label="Move through the website comparison">
+          <button type="button" class="page-step-button page-step-previous" aria-label="View previous page">←</button>
+          <span class="page-step-label" aria-live="polite">Home</span>
+          <button type="button" class="page-step-button page-step-next" aria-label="View next page">→</button>
+        </div>
         <button type="button" class="philosophy-button">Design philosophy</button>
         <div class="view-switcher" role="group" aria-label="Choose comparison view">
           <button type="button" class="view-button is-active" data-view="both" aria-pressed="true">Side by side</button>

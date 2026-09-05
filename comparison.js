@@ -10,6 +10,9 @@ const philosophyTitle = document.querySelector("#philosophy-title");
 const philosophyCopy = document.querySelector(".dialog-copy");
 const dialogClose = document.querySelector(".dialog-close");
 const dialogContinue = document.querySelector(".dialog-continue");
+const previousPageButton = document.querySelector(".page-step-previous");
+const nextPageButton = document.querySelector(".page-step-next");
+const pageStepLabel = document.querySelector(".page-step-label");
 const currentViewport = document.querySelector(".image-viewport");
 const currentCapture = document.querySelector(".current-site-capture");
 const currentImage = document.querySelector(".current-page-image");
@@ -23,6 +26,7 @@ const currentPages = {
   business: { image: "./assets/current-site-business.png", height: 1849, label: "Business page", redesign: "./business.html" },
   contact: { image: "./assets/current-site-contact.png", height: 998, label: "Contact page", redesign: "./connect.html" }
 };
+const comparisonPageOrder = Object.keys(currentPages);
 const pagePhilosophies = {
   home: {
     title: "One connected body of ideas",
@@ -160,9 +164,17 @@ function setCurrentPage(page) {
   currentImage.alt = `Full-page capture of the ${nextPage.label} on Nick Hanauer's current website`;
   liveFrame.src = nextPage.redesign;
   proposedOpenLink.href = nextPage.redesign;
+  pageStepLabel.textContent = page === "home" ? "Home" : nextPage.label.replace(/ page$/i, "");
   currentViewport.scrollTo({ top: 0, behavior: "smooth" });
   liveViewport.scrollTo({ top: 0, behavior: "smooth" });
   showPhilosophy(page);
+}
+
+function stepCurrentPage(direction) {
+  const currentPage = currentCapture.dataset.page || "home";
+  const currentIndex = Math.max(0, comparisonPageOrder.indexOf(currentPage));
+  const nextIndex = (currentIndex + direction + comparisonPageOrder.length) % comparisonPageOrder.length;
+  setCurrentPage(comparisonPageOrder[nextIndex]);
 }
 
 function showPhilosophy(page = currentCapture.dataset.page || "home") {
@@ -184,6 +196,9 @@ viewButtons.forEach((button) => {
 currentPageButtons.forEach((button) => {
   button.addEventListener("click", () => setCurrentPage(button.dataset.currentPage));
 });
+
+previousPageButton.addEventListener("click", () => stepCurrentPage(-1));
+nextPageButton.addEventListener("click", () => stepCurrentPage(1));
 
 philosophyButton.addEventListener("click", () => showPhilosophy());
 dialogClose.addEventListener("click", () => philosophyDialog.close());

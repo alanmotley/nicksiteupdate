@@ -68,6 +68,44 @@ a {
   gap: 12px;
 }
 
+.page-stepper {
+  height: 38px;
+  display: grid;
+  grid-template-columns: 38px minmax(88px, auto) 38px;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.page-step-button {
+  align-self: stretch;
+  padding: 0;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  font: 600 1rem/1 "Public Sans", sans-serif;
+  cursor: pointer;
+}
+
+.page-step-button:hover,
+.page-step-button:focus-visible {
+  color: #fff;
+  background: var(--signal);
+}
+
+.page-step-label {
+  padding: 0 8px;
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .philosophy-button {
   appearance: none;
   padding: 9px 0 8px;
@@ -361,6 +399,11 @@ a {
 
   .comparison-tools {
     width: 100%;
+  }
+
+  .page-stepper {
+    flex: 0 0 auto;
+    grid-template-columns: 34px minmax(70px, auto) 34px;
   }
 
   .philosophy-button {
