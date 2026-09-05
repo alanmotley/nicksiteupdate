@@ -260,6 +260,34 @@ if (civicFeed) {
     });
 }
 
+const tedOptions = document.querySelectorAll("[data-ted-option]");
+
+if (tedOptions.length) {
+  const player = document.querySelector("[data-ted-player]");
+  const label = document.querySelector("[data-ted-label]");
+  const title = document.querySelector("[data-ted-title]");
+  const description = document.querySelector("[data-ted-description]");
+  const talkLink = document.querySelector("[data-ted-link]");
+
+  tedOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      if (!option.classList.contains("is-active")) player.src = option.dataset.embed;
+      label.textContent = `TED Talk · ${option.dataset.year}`;
+      title.textContent = option.dataset.title;
+      description.textContent = option.dataset.description;
+      talkLink.href = option.dataset.link;
+
+      tedOptions.forEach((item) => {
+        const active = item === option;
+        item.classList.toggle("is-active", active);
+        item.querySelector("small").textContent = active ? "Now playing" : "Play talk";
+      });
+
+      document.querySelector(".media-page .video-frame").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+}
+
 const pageTransitionDuration = 170;
 
 window.addEventListener("pageshow", () => {

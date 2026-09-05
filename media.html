@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css?v=47">
-    <script src="./script.js?v=6" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=48">
+    <script src="./script.js?v=7" defer></script>
   </head>
   <body class="detail-page media-page">
     <div class="page-shell">
@@ -43,6 +43,7 @@
             <div class="media-feature">
               <div class="video-frame">
                 <iframe
+                  data-ted-player
                   src="https://embed.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward"
                   title="Nick Hanauer TED Talk"
                   loading="lazy"
@@ -52,16 +53,40 @@
               </div>
               <div class="media-caption">
                 <div class="media-copy">
-                  <p class="list-label">TED Talk · 2019</p>
-                  <h2>The dirty secret of capitalism, and a new way forward</h2>
-                  <p>
+                  <p class="list-label" data-ted-label>TED Talk · 2019</p>
+                  <h2 data-ted-title>The dirty secret of capitalism, and a new way forward</h2>
+                  <p data-ted-description>
                     A concise case for why economies weaken when prosperity narrows,
                     and why a broader distribution of growth matters.
                   </p>
                 </div>
                 <div class="hero-actions">
-                  <a class="button button-solid" href="https://www.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward">Watch at TED.com</a>
+                  <a class="button button-solid" data-ted-link href="https://www.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward">Watch at TED.com</a>
                 </div>
+              </div>
+              <div class="media-talk-selector" aria-label="Choose a TED Talk">
+                <button class="media-talk-option is-active" type="button"
+                  data-ted-option
+                  data-embed="https://embed.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward"
+                  data-link="https://www.ted.com/talks/nick_hanauer_the_dirty_secret_of_capitalism_and_a_new_way_forward"
+                  data-year="2019"
+                  data-title="The dirty secret of capitalism, and a new way forward"
+                  data-description="A concise case for why economies weaken when prosperity narrows, and why a broader distribution of growth matters.">
+                  <span>01 · 2019</span>
+                  <strong>The dirty secret of capitalism, and a new way forward</strong>
+                  <small>Now playing</small>
+                </button>
+                <button class="media-talk-option" type="button"
+                  data-ted-option
+                  data-embed="https://embed.ted.com/talks/nick_hanauer_beware_fellow_plutocrats_the_pitchforks_are_coming"
+                  data-link="https://www.ted.com/talks/nick_hanauer_beware_fellow_plutocrats_the_pitchforks_are_coming"
+                  data-year="2014"
+                  data-title="Beware, fellow plutocrats, the pitchforks are coming"
+                  data-description="A warning to fellow plutocrats that extreme inequality threatens both democracy and capitalism, and an argument for rebuilding prosperity through a stronger middle class.">
+                  <span>02 · 2014</span>
+                  <strong>Beware, fellow plutocrats, the pitchforks are coming</strong>
+                  <small>Play talk</small>
+                </button>
               </div>
             </div>
           </div>

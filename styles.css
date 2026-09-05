@@ -3902,6 +3902,64 @@ h1 span {
   color: var(--ted-black);
 }
 
+.media-talk-selector {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.media-talk-option {
+  appearance: none;
+  background: #171717;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  gap: 1.2rem;
+  min-height: 15rem;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  text-align: left;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.media-talk-option:last-child { border-right: 0; }
+
+.media-talk-option:hover,
+.media-talk-option:focus-visible { background: #242424; }
+
+.media-talk-option.is-active {
+  background: #fff;
+  color: var(--ted-black);
+}
+
+.media-talk-option > span,
+.media-talk-option > small {
+  font-family: "Archivo Narrow", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.media-talk-option > span { color: var(--ted-red); }
+
+.media-talk-option > strong {
+  align-self: end;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.55rem, 2.5vw, 2.35rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  max-width: 20ch;
+}
+
+.media-talk-option > small {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.media-talk-option.is-active > small { color: #686868; }
+
 .media-page .site-footer {
   background: var(--ted-black);
   border-top-color: rgba(255, 255, 255, 0.2);
@@ -4917,6 +4975,16 @@ h1 span {
 
   .ted-wordmark {
     width: min(100%, 19rem);
+  }
+
+  .media-talk-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .media-talk-option {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-right: 0;
+    min-height: 13rem;
   }
 
   .civic-page .civic-rail {
