@@ -94,7 +94,6 @@ function trackNickComparisonOpen() {
   const trackedKey = "pulse_nick_comparison_open_v1";
   try {
     if (window.sessionStorage.getItem(trackedKey) === "1") return;
-    window.sessionStorage.setItem(trackedKey, "1");
   } catch (error) {}
 
   const endpoint = "https://norynthe-pulse-tracker.alanmotley.workers.dev/track";
@@ -132,12 +131,16 @@ function trackNickComparisonOpen() {
     os: /iPhone|iPad/i.test(userAgent) ? "iOS" : /Mac OS X/i.test(userAgent) ? "macOS" : /Windows/i.test(userAgent) ? "Windows" : /Android/i.test(userAgent) ? "Android" : "Other"
   });
 
-  if (navigator.sendBeacon && navigator.sendBeacon(endpoint, new Blob([payload], { type: "text/plain;charset=UTF-8" }))) return;
   fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "text/plain;charset=UTF-8" },
     body: payload,
     keepalive: true
+  }).then((response) => {
+    if (!response.ok) throw new Error(`Tracker returned ${response.status}`);
+    try {
+      window.sessionStorage.setItem(trackedKey, "1");
+    } catch (error) {}
   }).catch(() => {});
 }
 
