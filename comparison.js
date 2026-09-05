@@ -84,6 +84,60 @@ const pagePhilosophies = {
   }
 };
 
+function trackNickComparisonOpen() {
+  const params = new URLSearchParams(window.location.search);
+  if (window.location.hostname !== "alanmotley.github.io" || params.get("recipient") !== "nick") return;
+
+  const trackedKey = "pulse_nick_comparison_open_v1";
+  try {
+    if (window.sessionStorage.getItem(trackedKey) === "1") return;
+    window.sessionStorage.setItem(trackedKey, "1");
+  } catch (error) {}
+
+  const endpoint = "https://norynthe-pulse-tracker.alanmotley.workers.dev/track";
+  const sessionKey = "pulse_nick_comparison_session_v1";
+  let sessionId = "";
+  try {
+    sessionId = window.sessionStorage.getItem(sessionKey) || window.crypto.randomUUID();
+    window.sessionStorage.setItem(sessionKey, sessionId);
+  } catch (error) {
+    sessionId = `nick-comparison-${Date.now()}`;
+  }
+
+  let referrerDomain = "";
+  try {
+    referrerDomain = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, "") : "";
+  } catch (error) {}
+
+  const userAgent = navigator.userAgent;
+  const payload = JSON.stringify({
+    site: "nicksiteupdate",
+    eventType: "proposal_view",
+    sessionId,
+    page: window.location.pathname,
+    pageLocation: window.location.href,
+    title: "Nick Website Comparison Opened",
+    assetName: "Nick Website Comparison",
+    referrer: document.referrer,
+    referrerDomain,
+    utmSource: params.get("utm_source") || "email",
+    utmMedium: params.get("utm_medium") || "direct",
+    utmCampaign: params.get("utm_campaign") || "nick_website_comparison",
+    utmContent: params.get("utm_content") || "saturday_morning",
+    deviceType: /Mobi|Android|iPhone|iPad/i.test(userAgent) ? "mobile" : "desktop",
+    browser: /Edg\//.test(userAgent) ? "Edge" : /Chrome\//.test(userAgent) ? "Chrome" : /Safari\//.test(userAgent) ? "Safari" : "Other",
+    os: /iPhone|iPad/i.test(userAgent) ? "iOS" : /Mac OS X/i.test(userAgent) ? "macOS" : /Windows/i.test(userAgent) ? "Windows" : /Android/i.test(userAgent) ? "Android" : "Other"
+  });
+
+  if (navigator.sendBeacon && navigator.sendBeacon(endpoint, new Blob([payload], { type: "text/plain;charset=UTF-8" }))) return;
+  fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=UTF-8" },
+    body: payload,
+    keepalive: true
+  }).catch(() => {});
+}
+
 function sizeLivePreview() {
   const scale = liveViewport.clientWidth / desktopWidth;
   liveFrame.style.transform = `scale(${scale})`;
@@ -146,3 +200,4 @@ liveFrame.addEventListener("load", sizeLivePreview);
 window.addEventListener("resize", sizeLivePreview);
 sizeLivePreview();
 showPhilosophy("home");
+trackNickComparisonOpen();
