@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./comparison.css?v=7">
+    <link rel="stylesheet" href="./comparison.css?v=8">
     <script src="./comparison.js?v=10" defer></script>
   </head>
   <body>
@@ -31,9 +31,12 @@
     <main class="comparison-grid" data-active-view="both">
       <section class="site-panel current-panel" aria-labelledby="current-title">
         <div class="panel-heading">
-          <div>
-            <p class="panel-label">Before</p>
-            <h1 id="current-title">Current website</h1>
+          <div class="panel-identity">
+            <img class="site-favicon" src="https://images.squarespace-cdn.com/content/v1/69a60ae94ee18b0a820670af/5966e089-d29d-41a6-ae21-9234ab8e5091/favicon.ico" width="34" height="34" alt="Current Nick Hanauer website favicon">
+            <div>
+              <p class="panel-label">Before</p>
+              <h1 id="current-title">Current website</h1>
+            </div>
           </div>
           <a href="https://www.nickhanauer.com/" target="_blank" rel="noopener">Open current site</a>
         </div>
@@ -55,9 +58,12 @@
 
       <section class="site-panel proposed-panel" aria-labelledby="proposed-title">
         <div class="panel-heading">
-          <div>
-            <p class="panel-label">After</p>
-            <h1 id="proposed-title">Proposed redesign</h1>
+          <div class="panel-identity">
+            <img class="site-favicon" src="./assets/favicon.svg" width="34" height="34" alt="Proposed Nick Hanauer website favicon">
+            <div>
+              <p class="panel-label">After</p>
+              <h1 id="proposed-title">Proposed redesign</h1>
+            </div>
           </div>
           <a class="proposed-open-link" href="./index.html" target="_blank" rel="noopener">Open redesign</a>
         </div>
