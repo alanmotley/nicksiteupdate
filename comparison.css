@@ -62,6 +62,15 @@ a {
   text-transform: uppercase;
 }
 
+.comparison-title .designer-credit {
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+  color: #444c53;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+}
+
 .comparison-tools {
   display: flex;
   align-items: center;
@@ -431,6 +440,10 @@ a {
     width: 100%;
     justify-content: space-between;
     gap: 10px;
+  }
+
+  .comparison-title .designer-credit {
+    display: none;
   }
 
   .view-switcher {
