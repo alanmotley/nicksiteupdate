@@ -91,7 +91,7 @@ function trackNickComparisonOpen() {
   const params = new URLSearchParams(window.location.search);
   if (window.location.hostname !== "alanmotley.github.io" || params.get("recipient") !== "nick") return;
 
-  const trackedKey = "pulse_nick_comparison_open_v1";
+  const trackedKey = "pulse_nick_comparison_open_v2";
   try {
     if (window.sessionStorage.getItem(trackedKey) === "1") return;
   } catch (error) {}
