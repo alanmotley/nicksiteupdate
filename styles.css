@@ -3746,6 +3746,7 @@ h1 span {
   display: grid;
   gap: 0;
   grid-template-columns: 1fr;
+  margin-top: 0;
 }
 
 .media-page .media-rail {
