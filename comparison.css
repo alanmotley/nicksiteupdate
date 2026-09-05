@@ -222,8 +222,24 @@ a {
   background: #e8eae8;
 }
 
+.image-viewport {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+.image-viewport:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: -2px;
+}
+
 .current-site-capture {
   position: relative;
+  min-height: max-content;
 }
 
 .image-viewport img {
