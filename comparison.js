@@ -14,7 +14,6 @@ const currentViewport = document.querySelector(".image-viewport");
 const currentCapture = document.querySelector(".current-site-capture");
 const currentImage = document.querySelector(".current-page-image");
 const currentPageButtons = document.querySelectorAll("[data-current-page]");
-const desktopWidth = 1425;
 const currentPages = {
   home: { image: "./assets/current-site-home.png", height: 2176, label: "homepage", redesign: "./index.html" },
   about: { image: "./assets/current-site-about.png", height: 1889, label: "About page", redesign: "./about.html" },
@@ -139,9 +138,6 @@ function trackNickComparisonOpen() {
 }
 
 function sizeLivePreview() {
-  const scale = liveViewport.clientWidth / desktopWidth;
-  liveFrame.style.transform = `scale(${scale})`;
-  liveFrame.style.height = `${Math.max(liveViewport.clientHeight / scale, 900)}px`;
   liveCanvas.style.height = `${liveViewport.clientHeight}px`;
 }
 
