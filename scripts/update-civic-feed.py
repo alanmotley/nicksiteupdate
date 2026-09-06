@@ -17,6 +17,10 @@ from pathlib import Path
 
 FEED_URL = "https://civicventures.substack.com/feed"
 ARCHIVE_URL = "https://civicventures.substack.com/api/v1/archive?sort=new&search=&offset=0&limit=3"
+RSS_PROXY_URL = (
+    "https://api.rss2json.com/v1/api.json?rss_url="
+    + urllib.parse.quote(FEED_URL, safe="")
+)
 OUTPUT = Path(__file__).resolve().parents[1] / "data" / "civic-feed.json"
 DC_CREATOR = "{http://purl.org/dc/elements/1.1/}creator"
 CONTENT_ENCODED = "{http://purl.org/rss/1.0/modules/content/}encoded"
@@ -81,12 +85,36 @@ def entries_from_archive(raw: bytes) -> list[dict[str, str]]:
     return entries
 
 
+def entries_from_rss_proxy(raw: bytes) -> list[dict[str, str]]:
+    payload = json.loads(raw)
+    if payload.get("status") != "ok":
+        raise RuntimeError(f"RSS proxy error: {payload.get('message', 'unknown error')}")
+    entries = []
+    for item in payload.get("items", [])[:3]:
+        published = datetime.strptime(item["pubDate"], "%Y-%m-%d %H:%M:%S")
+        entries.append(
+            {
+                "title": clean_text(item.get("title")),
+                "description": clean_text(item.get("description")),
+                "link": clean_text(item.get("link")),
+                "author": clean_text(item.get("author")),
+                "date": published.date().isoformat(),
+                "image": item.get("thumbnail") or "",
+            }
+        )
+    return entries
+
+
 def main() -> None:
     try:
         entries = entries_from_rss(fetch(FEED_URL))
     except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ET.ParseError) as error:
-        print(f"RSS fetch unavailable ({error}); using Substack archive API")
-        entries = entries_from_archive(fetch(ARCHIVE_URL))
+        print(f"RSS fetch unavailable ({error}); trying Substack archive API")
+        try:
+            entries = entries_from_archive(fetch(ARCHIVE_URL))
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, json.JSONDecodeError) as archive_error:
+            print(f"Archive API unavailable ({archive_error}); using RSS proxy")
+            entries = entries_from_rss_proxy(fetch(RSS_PROXY_URL))
 
     if not entries:
         raise RuntimeError("Civic Ventures returned no newsletter entries")
