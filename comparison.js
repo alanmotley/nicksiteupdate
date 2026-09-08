@@ -87,24 +87,35 @@ const pagePhilosophies = {
   }
 };
 
-function trackNickComparisonOpen() {
-  const params = new URLSearchParams(window.location.search);
-  if (window.location.hostname !== "alanmotley.github.io" || params.get("recipient") !== "nick") return;
+const pulseTracking = {
+  endpoint: "https://norynthe-pulse-tracker.alanmotley.workers.dev/track",
+  enabled: false,
+  sessionId: "",
+  params: new URLSearchParams(window.location.search),
+  activeSeconds: 0,
+  engaged: false,
+  reviewTimer: null
+};
 
-  const trackedKey = "pulse_nick_comparison_open_v2";
+function pulseStorageGet(key) {
   try {
-    if (window.sessionStorage.getItem(trackedKey) === "1") return;
-  } catch (error) {}
-
-  const endpoint = "https://norynthe-pulse-tracker.alanmotley.workers.dev/track";
-  const sessionKey = "pulse_nick_comparison_session_v1";
-  let sessionId = "";
-  try {
-    sessionId = window.sessionStorage.getItem(sessionKey) || window.crypto.randomUUID();
-    window.sessionStorage.setItem(sessionKey, sessionId);
+    return window.localStorage.getItem(key);
   } catch (error) {
-    sessionId = `nick-comparison-${Date.now()}`;
+    return null;
   }
+}
+
+function pulseStorageSet(key, value) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (error) {}
+}
+
+function sendNickComparisonSignal(eventType, title, note) {
+  if (!pulseTracking.enabled) return;
+
+  const trackedKey = `pulse_nick_comparison_${eventType}_v1`;
+  if (pulseStorageGet(trackedKey) === "1") return;
 
   let referrerDomain = "";
   try {
@@ -114,34 +125,75 @@ function trackNickComparisonOpen() {
   const userAgent = navigator.userAgent;
   const payload = JSON.stringify({
     site: "nicksiteupdate",
-    eventType: "proposal_view",
-    sessionId,
+    eventType,
+    sessionId: pulseTracking.sessionId,
     page: window.location.pathname,
     pageLocation: window.location.href,
-    title: "Nick Website Comparison Opened",
+    title,
     assetName: "Nick Website Comparison",
+    note,
     referrer: document.referrer,
     referrerDomain,
-    utmSource: params.get("utm_source") || "email",
-    utmMedium: params.get("utm_medium") || "direct",
-    utmCampaign: params.get("utm_campaign") || "nick_website_comparison",
-    utmContent: params.get("utm_content") || "saturday_morning",
+    utmSource: pulseTracking.params.get("utm_source") || "email",
+    utmMedium: pulseTracking.params.get("utm_medium") || "direct",
+    utmCampaign: pulseTracking.params.get("utm_campaign") || "nick_website_comparison",
+    utmContent: pulseTracking.params.get("utm_content") || "direct_outreach",
     deviceType: /Mobi|Android|iPhone|iPad/i.test(userAgent) ? "mobile" : "desktop",
     browser: /Edg\//.test(userAgent) ? "Edge" : /Chrome\//.test(userAgent) ? "Chrome" : /Safari\//.test(userAgent) ? "Safari" : "Other",
     os: /iPhone|iPad/i.test(userAgent) ? "iOS" : /Mac OS X/i.test(userAgent) ? "macOS" : /Windows/i.test(userAgent) ? "Windows" : /Android/i.test(userAgent) ? "Android" : "Other"
   });
 
-  fetch(endpoint, {
+  fetch(pulseTracking.endpoint, {
     method: "POST",
     headers: { "Content-Type": "text/plain;charset=UTF-8" },
     body: payload,
     keepalive: true
   }).then((response) => {
     if (!response.ok) throw new Error(`Tracker returned ${response.status}`);
-    try {
-      window.sessionStorage.setItem(trackedKey, "1");
-    } catch (error) {}
+    pulseStorageSet(trackedKey, "1");
   }).catch(() => {});
+}
+
+function startNickComparisonTracking() {
+  const params = new URLSearchParams(window.location.search);
+  if (window.location.hostname !== "alanmotley.github.io" || params.get("recipient") !== "nick") return;
+
+  pulseTracking.enabled = true;
+  const sessionKey = "pulse_nick_comparison_session_v1";
+  try {
+    pulseTracking.sessionId = window.localStorage.getItem(sessionKey) || window.crypto.randomUUID();
+    window.localStorage.setItem(sessionKey, pulseTracking.sessionId);
+  } catch (error) {
+    pulseTracking.sessionId = `nick-comparison-${Date.now()}`;
+  }
+
+  sendNickComparisonSignal(
+    "proposal_link_access",
+    "Nick Comparison Link Accessed",
+    "The issued URL loaded. Human presence is not confirmed."
+  );
+
+  pulseTracking.reviewTimer = window.setInterval(() => {
+    if (!pulseTracking.engaged || document.visibilityState !== "visible" || !document.hasFocus()) return;
+    pulseTracking.activeSeconds += 1;
+    if (pulseTracking.activeSeconds < 15) return;
+    window.clearInterval(pulseTracking.reviewTimer);
+    sendNickComparisonSignal(
+      "proposal_reviewed",
+      "Nick Comparison Actively Reviewed",
+      "The visitor deliberately entered the comparison and kept it active for at least 15 seconds."
+    );
+  }, 1000);
+}
+
+function trackNickComparisonEngagement() {
+  if (!pulseTracking.enabled || pulseTracking.engaged) return;
+  pulseTracking.engaged = true;
+  sendNickComparisonSignal(
+    "proposal_engaged",
+    "Nick Comparison Deliberately Opened",
+    "The visitor selected View the transformation."
+  );
 }
 
 function sizeLivePreview() {
@@ -205,7 +257,10 @@ nextPageButton.addEventListener("click", () => stepCurrentPage(1));
 
 philosophyButton.addEventListener("click", () => showPhilosophy());
 dialogClose.addEventListener("click", () => philosophyDialog.close());
-dialogContinue.addEventListener("click", () => philosophyDialog.close());
+dialogContinue.addEventListener("click", () => {
+  trackNickComparisonEngagement();
+  philosophyDialog.close();
+});
 philosophyDialog.addEventListener("click", (event) => {
   if (event.target === philosophyDialog) philosophyDialog.close();
 });
@@ -214,4 +269,4 @@ liveFrame.addEventListener("load", sizeLivePreview);
 window.addEventListener("resize", sizeLivePreview);
 sizeLivePreview();
 showPhilosophy("home");
-trackNickComparisonOpen();
+startNickComparisonTracking();
