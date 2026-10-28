@@ -2,6 +2,13 @@
   "channel": "https://www.youtube.com/@nickhanauerclasstraitor/videos",
   "videos": [
     {
+      "id": "3mRuLpTXw1Y",
+      "title": "You're Underpaid. This Is How They Justify It.",
+      "published": "5h ago",
+      "thumbnail": "https://i.ytimg.com/vi/3mRuLpTXw1Y/hqdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=3mRuLpTXw1Y"
+    },
+    {
       "id": "oIpr_ajGm8o",
       "title": "How We Fix Social Security",
       "published": "2mo ago",
@@ -14,13 +21,6 @@
       "published": "3mo ago",
       "thumbnail": "https://i.ytimg.com/vi/lfgv3SVcLHk/hqdefault.jpg",
       "url": "https://www.youtube.com/watch?v=lfgv3SVcLHk"
-    },
-    {
-      "id": "ZjnrUi1CtH8",
-      "title": "The Pitchforks Are Here",
-      "published": "4mo ago",
-      "thumbnail": "https://i.ytimg.com/vi/ZjnrUi1CtH8/hqdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=ZjnrUi1CtH8"
     }
   ]
 }
