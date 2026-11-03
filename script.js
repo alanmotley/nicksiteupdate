@@ -164,9 +164,9 @@ if (podcastList) {
       day: "numeric",
       year: "numeric",
     });
-    const fullTitle = decodeText(episode.title.rendered);
+    const fullTitle = decodeText(episode.title?.rendered || episode.title);
     const shortTitle = displayTitle(fullTitle);
-    const excerpt = conciseDescription(decodeText(episode.excerpt.rendered));
+    const excerpt = conciseDescription(decodeText(episode.excerpt?.rendered || episode.excerpt));
 
     button.className = `podcast-episode-card${index === 0 ? " is-active" : ""}`;
     button.type = "button";
@@ -200,12 +200,12 @@ if (podcastList) {
 
   bindCards();
 
-  fetch("https://pitchforkeconomics.com/wp-json/wp/v2/episode?per_page=6&_fields=id,date,slug,link,title,excerpt")
+  fetch(`./data/podcast-episodes.json?v=${Date.now()}`, { cache: "no-store" })
     .then((response) => {
       if (!response.ok) throw new Error("Podcast feed unavailable");
       return response.json();
     })
-    .then((episodes) => {
+    .then(({ episodes }) => {
       if (!Array.isArray(episodes) || episodes.length === 0) return;
       const cards = episodes.map(createEpisodeCard);
       podcastList.replaceChildren(...cards);

@@ -1,0 +1,30 @@
+name: Update podcast feed
+
+on:
+  schedule:
+    - cron: "17 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch latest official episodes
+        run: |
+          mkdir -p data
+          curl --fail --location --retry 3 \
+            'https://pitchforkeconomics.com/wp-json/wp/v2/episode?per_page=6&_fields=id,date,slug,link,title,excerpt' \
+            | jq --arg updatedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              '{source:"https://pitchforkeconomics.com/wp-json/wp/v2/episode",updatedAt:$updatedAt,episodes:[.[] | {id,date,slug,link,title:.title.rendered,excerpt:.excerpt.rendered}]}' \
+            > data/podcast-episodes.json
+      - name: Commit if changed
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/podcast-episodes.json
+          git diff --cached --quiet || git commit -m "chore: refresh podcast episodes"
+          git push
