@@ -16,11 +16,29 @@ jobs:
       - name: Fetch latest official episodes
         run: |
           mkdir -p data
-          curl --fail --location --retry 3 \
-            'https://pitchforkeconomics.com/wp-json/wp/v2/episode?per_page=6&_fields=id,date,slug,link,title,excerpt' \
-            | jq --arg updatedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-              '{source:"https://pitchforkeconomics.com/wp-json/wp/v2/episode",updatedAt:$updatedAt,episodes:[.[] | {id,date,slug,link,title:.title.rendered,excerpt:.excerpt.rendered}]}' \
-            > data/podcast-episodes.json
+          curl --fail --location --retry 3 'https://feeds.megaphone.fm/pitchforkeconomics' -o /tmp/podcast.xml
+          python3 - <<'PY'
+          import datetime, email.utils, html, json, re, xml.etree.ElementTree as ET
+          root = ET.parse('/tmp/podcast.xml').find('channel')
+          episodes = []
+          for item in root.findall('item')[:6]:
+              title = item.findtext('title') or ''
+              published = email.utils.parsedate_to_datetime(item.findtext('pubDate')).astimezone(datetime.timezone.utc)
+              enclosure = item.find('enclosure')
+              slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+              episodes.append({
+                  'id': item.findtext('guid'),
+                  'date': published.strftime('%Y-%m-%dT%H:%M:%S'),
+                  'slug': slug,
+                  'link': 'https://podcasts.apple.com/us/podcast/pitchfork-economics-with-nick-hanauer/id1445901378',
+                  'audio': enclosure.get('url') if enclosure is not None else '',
+                  'title': title,
+                  'excerpt': html.unescape(item.findtext('description') or ''),
+              })
+          with open('data/podcast-episodes.json', 'w', encoding='utf-8') as output:
+              json.dump({'source': 'https://feeds.megaphone.fm/pitchforkeconomics', 'updatedAt': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'episodes': episodes}, output, ensure_ascii=False, indent=2)
+              output.write('\n')
+          PY
       - name: Commit if changed
         run: |
           git config user.name github-actions[bot]

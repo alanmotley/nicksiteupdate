@@ -126,7 +126,7 @@ if (podcastList) {
   };
 
   const episodeAudio = (episode) =>
-    `https://pitchforkeconomics.com/episode-player/${episode.id}/${episode.slug}.mp3`;
+    episode.audio || `https://pitchforkeconomics.com/episode-player/${episode.id}/${episode.slug}.mp3`;
 
   const displayTitle = (value) => value.replace(/\s*\(with .*\)$/i, "").trim();
 
